@@ -180,61 +180,19 @@
             margin-bottom: 35px;
             font-size: 17px;
         }
-        
-        .input-group {
-            margin-bottom: 20px;
+
+        /* Kit Form Styles */
+        .kit-form-wrapper {
+            max-width: 100%;
         }
-        
-        label {
-            display: block;
-            margin-bottom: 10px;
-            font-weight: 600;
-            color: #1e293b;
-            font-size: 15px;
+
+        /* Override Kit default styles for better integration */
+        .formkit-form {
+            margin: 0 !important;
         }
-        
-        input[type="text"],
-        input[type="email"] {
-            width: 100%;
-            padding: 16px 18px;
-            border: 2px solid #cbd5e1;
+
+        .formkit-form[data-uid="4ae19fdb2f"] {
             border-radius: 8px;
-            font-size: 16px;
-            transition: all 0.3s;
-            background: white;
-        }
-        
-        input[type="text"]:focus,
-        input[type="email"]:focus {
-            outline: none;
-            border-color: #3b82f6;
-            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1);
-        }
-        
-        .submit-btn {
-            width: 100%;
-            padding: 20px;
-            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
-            color: white;
-            border: none;
-            border-radius: 8px;
-            font-size: 19px;
-            font-weight: 700;
-            cursor: pointer;
-            transition: all 0.3s;
-            margin-top: 12px;
-            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3);
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-        }
-        
-        .submit-btn:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4);
-        }
-        
-        .submit-btn:active {
-            transform: translateY(0);
         }
         
         .security-badges {
@@ -304,33 +262,6 @@
             padding: 40px 0 20px;
             color: white;
             font-size: 14px;
-        }
-        
-        .success-message {
-            display: none;
-            background: #d1fae5;
-            color: #065f46;
-            padding: 20px;
-            border-radius: 8px;
-            margin-top: 20px;
-            border-left: 4px solid #10b981;
-            font-weight: 600;
-        }
-        
-        .success-message.show {
-            display: block;
-            animation: slideIn 0.4s ease-out;
-        }
-        
-        @keyframes slideIn {
-            from {
-                opacity: 0;
-                transform: translateY(-10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
         }
         
         @media (max-width: 768px) {
@@ -432,82 +363,31 @@
                 <h2 class="form-title">Get Your FREE Checklist</h2>
                 <p class="form-subtitle">Instant delivery to your email. No credit card required.</p>
                 
-                <form id="leadForm">
-                    <div class="input-group">
-                        <label for="name">Full Name:</label>
-                        <input type="text" id="name" name="name" placeholder="Enter your full name" required>
+                <!-- Kit Form Integration -->
+                <div class="kit-form-wrapper">
+                    <script async data-uid="4ae19fdb2f" src="https://senior-safety-resourcesprotect.kit.com/4ae19fdb2f/index.js"></script>
+                </div>
+                
+                <div class="security-badges">
+                    <div class="badge">
+                        <span class="badge-icon">🔒</span>
+                        <span>SSL Secured</span>
                     </div>
-                    
-                    <div class="input-group">
-                        <label for="email">Email Address:</label>
-                        <input type="email" id="email" name="email" placeholder="your.email@example.com" required>
+                    <div class="badge">
+                        <span class="badge-icon">✓</span>
+                        <span>Privacy Protected</span>
                     </div>
-                    
-                    <button type="submit" class="submit-btn">
-                        Download Free Checklist Now
-                    </button>
-                    
-                    <div class="security-badges">
-                        <div class="badge">
-                            <span class="badge-icon">🔒</span>
-                            <span>SSL Secured</span>
-                        </div>
-                        <div class="badge">
-                            <span class="badge-icon">✓</span>
-                            <span>Privacy Protected</span>
-                        </div>
-                        <div class="badge">
-                            <span class="badge-icon">📧</span>
-                            <span>Instant Delivery</span>
-                        </div>
+                    <div class="badge">
+                        <span class="badge-icon">📧</span>
+                        <span>Instant Delivery</span>
                     </div>
-                    
-                    <div id="successMessage" class="success-message">
-                        ✓ Thank you! Check your email in 2 minutes for your free checklist.
-                    </div>
-                </form>
+                </div>
             </div>
-            
-
         </div>
         
         <div class="footer">
             <p>&copy; 2025 All rights reserved. Protecting families from AI scams.</p>
         </div>
     </div>
-
-    <script>
-        document.getElementById('leadForm').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            const name = document.getElementById('name').value;
-            const email = document.getElementById('email').value;
-            
-            // TODO: Replace with ConvertKit integration
-            // For now, just show success message
-            
-            const successMsg = document.getElementById('successMessage');
-            successMsg.classList.add('show');
-            
-            // Reset form
-            this.reset();
-            
-            // Hide message after 5 seconds
-            setTimeout(() => {
-                successMsg.classList.remove('show');
-            }, 5000);
-            
-            // КОНВЕРТKIT ИНТЕГРАЦИЯ (добавишь позже):
-            // fetch('https://api.convertkit.com/v3/forms/YOUR_FORM_ID/subscribe', {
-            //     method: 'POST',
-            //     headers: { 'Content-Type': 'application/json' },
-            //     body: JSON.stringify({
-            //         api_key: 'YOUR_API_KEY',
-            //         email: email,
-            //         first_name: name
-            //     })
-            // });
-        });
-    </script>
 </body>
 </html>
