@@ -180,19 +180,55 @@
             margin-bottom: 35px;
             font-size: 17px;
         }
-
-        /* Kit Form Styles */
-        .kit-form-wrapper {
-            max-width: 100%;
+        
+        /* MailerLite Form Customization */
+        .ml-embedded {
+            margin-bottom: 20px;
         }
-
-        /* Override Kit default styles for better integration */
-        .formkit-form {
-            margin: 0 !important;
+        
+        .ml-embedded input[type="text"],
+        .ml-embedded input[type="email"] {
+            width: 100% !important;
+            padding: 16px 18px !important;
+            border: 2px solid #cbd5e1 !important;
+            border-radius: 8px !important;
+            font-size: 16px !important;
+            margin-bottom: 16px !important;
+            background: white !important;
+            font-family: inherit !important;
         }
-
-        .formkit-form[data-uid="4ae19fdb2f"] {
-            border-radius: 8px;
+        
+        .ml-embedded input[type="text"]:focus,
+        .ml-embedded input[type="email"]:focus {
+            outline: none !important;
+            border-color: #3b82f6 !important;
+            box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.1) !important;
+        }
+        
+        .ml-embedded button[type="submit"] {
+            width: 100% !important;
+            padding: 20px !important;
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%) !important;
+            color: white !important;
+            border: none !important;
+            border-radius: 8px !important;
+            font-size: 19px !important;
+            font-weight: 700 !important;
+            cursor: pointer !important;
+            text-transform: uppercase !important;
+            letter-spacing: 0.5px !important;
+            box-shadow: 0 4px 16px rgba(59, 130, 246, 0.3) !important;
+            transition: all 0.3s !important;
+            font-family: inherit !important;
+        }
+        
+        .ml-embedded button[type="submit"]:hover {
+            transform: translateY(-2px) !important;
+            box-shadow: 0 8px 24px rgba(59, 130, 246, 0.4) !important;
+        }
+        
+        .ml-embedded button[type="submit"]:active {
+            transform: translateY(0) !important;
         }
         
         .security-badges {
@@ -214,47 +250,6 @@
         
         .badge-icon {
             font-size: 20px;
-        }
-        
-        .trust-section {
-            margin: 50px 0;
-            padding: 35px;
-            background: #f8fafc;
-            border-radius: 12px;
-            text-align: center;
-        }
-        
-        .trust-title {
-            font-size: 14px;
-            color: #64748b;
-            margin-bottom: 24px;
-            text-transform: uppercase;
-            letter-spacing: 1.5px;
-            font-weight: 600;
-        }
-        
-        .trust-logos {
-            display: flex;
-            justify-content: center;
-            gap: 40px;
-            flex-wrap: wrap;
-            align-items: center;
-        }
-        
-        .trust-logo {
-            padding: 16px 28px;
-            background: white;
-            border-radius: 8px;
-            border: 2px solid #e2e8f0;
-            font-weight: 600;
-            color: #475569;
-            font-size: 15px;
-            transition: all 0.2s;
-        }
-        
-        .trust-logo:hover {
-            border-color: #3b82f6;
-            transform: translateY(-2px);
         }
         
         .footer {
@@ -287,10 +282,6 @@
             
             .benefit-item {
                 padding: 12px;
-            }
-            
-            .trust-logos {
-                gap: 20px;
             }
         }
     </style>
@@ -363,10 +354,8 @@
                 <h2 class="form-title">Get Your FREE Checklist</h2>
                 <p class="form-subtitle">Instant delivery to your email. No credit card required.</p>
                 
-                <!-- Kit Form Integration -->
-                <div class="kit-form-wrapper">
-                    <script async data-uid="4ae19fdb2f" src="https://senior-safety-resourcesprotect.kit.com/4ae19fdb2f/index.js"></script>
-                </div>
+                <!-- MailerLite Embedded Form -->
+                <div class="ml-embedded" data-form="xdXIEL"></div>
                 
                 <div class="security-badges">
                     <div class="badge">
@@ -383,11 +372,25 @@
                     </div>
                 </div>
             </div>
+            
         </div>
         
         <div class="footer">
             <p>&copy; 2025 All rights reserved. Protecting families from AI scams.</p>
         </div>
     </div>
+
+    <!-- MailerLite Universal Script -->
+    <script>
+        (function(w,d,e,u,f,l,n){w[f]=w[f]||function(){(w[f].q=w[f].q||[])
+        .push(arguments);},l=d.createElement(e),l.async=1,l.src=u,
+        n=d.getElementsByTagName(e)[0],n.parentNode.insertBefore(l,n);})
+        (window,document,'script','https://assets.mailerlite.com/js/universal.js','ml');
+        ml('account', '1845958');
+    </script>
+    
+    <!-- MailerLite Form Script -->
+    <script src="https://assets.mailerlite.com/js/form.js"></script>
+
 </body>
 </html>
